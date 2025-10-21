@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Load disease data at startup
 let diseaseData = {};
 try {
@@ -14,11 +13,6 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs').promises;
 const multer = require('multer');
-=======
-const express = require('express');
-const path = require('path');
-const fs = require('fs').promises;
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 require('dotenv').config();
 
 const app = express();
@@ -28,15 +22,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-<<<<<<< HEAD
 // Configure multer for file uploads
 const upload = multer({
     limits: { fileSize: 25 * 1024 * 1024 }, // 25MB limit
     dest: '/tmp/' // Temporary directory for uploads
 });
 
-=======
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -259,7 +250,6 @@ function toRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
 
-<<<<<<< HEAD
 // Helper function to determine current season
 function getCurrentSeason() {
     const month = new Date().getMonth() + 1; // getMonth() returns 0-11
@@ -304,11 +294,6 @@ function getWeatherImpact(weatherData, season) {
 app.post('/api/chat', async (req, res) => {
    try {
      const { message, weatherData, location, language } = req.body;
-=======
-app.post('/api/chat', async (req, res) => {
-   try {
-     const { message, weatherData, location } = req.body;
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 
      if (!message) {
        return res.status(400).json({ error: 'Message is required' });
@@ -325,7 +310,6 @@ app.post('/api/chat', async (req, res) => {
          minute: '2-digit'
        });
 
-<<<<<<< HEAD
        // Get current hour for time-based advice
        const currentHour = new Date().getHours();
        const timeOfDay = currentHour < 12 ? 'morning' : currentHour < 17 ? 'afternoon' : 'evening';
@@ -333,14 +317,10 @@ app.post('/api/chat', async (req, res) => {
        // Enhanced weather context with seasonal relevance
        const season = getCurrentSeason();
        contextInfo = `Current location: ${weatherData.location || location.name || 'Unknown'}, ${weatherData.country || 'India'}. Local time: ${localTime} (${timeOfDay}). Current season: ${season}. Weather: ${weatherData.temperature}°C, ${weatherData.description}, humidity ${weatherData.humidity}%. ${weatherData.forecast ? `24-hour forecast shows temperatures ranging from ${Math.min(...weatherData.forecast.map(f => f.temperature))}°C to ${Math.max(...weatherData.forecast.map(f => f.temperature))}°C with conditions: ${weatherData.forecast.slice(0, 4).map(f => f.description).join(', ')}.` : ''} Weather impact: ${getWeatherImpact(weatherData, season)}`;
-=======
-       contextInfo = `Current location: ${weatherData.location || location.name || 'Unknown'}, ${weatherData.country || 'India'}. Local time: ${localTime}. Weather: ${weatherData.temperature}°C, ${weatherData.description}, humidity ${weatherData.humidity}%. ${weatherData.forecast ? `24-hour forecast shows temperatures ranging from ${Math.min(...weatherData.forecast.map(f => f.temperature))}°C to ${Math.max(...weatherData.forecast.map(f => f.temperature))}°C.` : ''}`;
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
      } else if (weatherData) {
        contextInfo = `Current weather: ${weatherData.temperature}°C, ${weatherData.description}, humidity ${weatherData.humidity}%, location: ${weatherData.location || 'Unknown'}`;
      }
 
-<<<<<<< HEAD
      // Prepare disease knowledge for the AI
      const languageKey = language || 'en';
      let diseaseKnowledge = '';
@@ -375,12 +355,6 @@ Key guidelines:
 - ALWAYS use the disease data provided above as your primary source of information for symptoms, prevention, remedies, self-care, and nutrition
 - Supplement with general health knowledge only when the disease data doesn't cover a topic
 - When asked about a specific disease, provide information from the structured data in a clear, organized format
-=======
-     // Construct enhanced prompt for the AI
-     const systemPrompt = `You are a health assistant specializing in seasonal diseases and location-aware health advice. You provide personalized recommendations based on weather conditions, local time, and geographical factors.
-
-Key guidelines:
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 - Always include appropriate medical disclaimers
 - Provide evidence-based health advice with detailed information about symptoms, causes, prevention, and treatments
 - Consider current weather, temperature, humidity, and forecast data when giving recommendations: ${contextInfo}
@@ -401,18 +375,13 @@ Important: This is not medical advice. Always recommend consulting healthcare pr
 
 User message: ${message}`;
 
-<<<<<<< HEAD
     // OpenRouter API call with enhanced headers
-=======
-    // OpenRouter API call
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json',
         'HTTP-Referer': req.headers.referer || 'http://localhost:3000',
-<<<<<<< HEAD
         'X-Title': 'Seasons of Health Assistant',
         'X-Language': language || 'en',
         'X-Weather-Data': req.headers['x-weather-data'] || '',
@@ -424,16 +393,6 @@ User message: ${message}`;
           {
             role: 'system',
             content: systemPrompt + `\n\nIMPORTANT: Respond ONLY in the language specified by the user. The user has selected: ${language || 'en'}. If language is 'te', respond in Telugu (తెలుగు). If language is 'en', respond in English. Do not mix languages or provide translations. Always respond in the user's selected language only.`
-=======
-        'X-Title': 'Seasons of Health Assistant'
-      },
-      body: JSON.stringify({
-        model: process.env.MODEL_NAME,
-        messages: [
-          {
-            role: 'system',
-            content: systemPrompt
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
           },
           {
             role: 'user',
@@ -452,14 +411,9 @@ User message: ${message}`;
     const data = await response.json();
     const aiResponse = data.choices[0]?.message?.content || 'I apologize, but I couldn\'t generate a response. Please try again.';
 
-<<<<<<< HEAD
     // Add disclaimer to response - now uses single language based on user selection
     // The disclaimer will be handled by the frontend translation system
     const fullResponse = aiResponse;
-=======
-    // Add disclaimer to response - now uses translations from front-end
-    const fullResponse = `${aiResponse}\n\n⚠️ **വైദ്യ മുന്നറിയിപ്പ്:** ഈ വിവരം വിദ്യാഭ്യാസ ആവശ്യങ്ങൾക്ക് മാത്രമാണ്, പ്രൊഫഷണൽ മെഡിക്കൽ സലഹയ്ക്കോ രോഗനിർണയത്തിനോ ചികിത്സയ്ക്കോ പകരമല്ല. എല്ലായ്പ്പോഴും മെഡിക്കൽ പ്രൊഫഷണലുകളുമായി ബന്ധപ്പെടുക.\n\n⚠️ **Medical Disclaimer:** This information is for educational purposes only and is not a substitute for professional medical advice. Always consult healthcare professionals for personalized health concerns.\n\n⚠️ **వైద్య ముందే హెచ్చరిక:** ఈ సమాచారం విద్యా ప్రయోజనాల కోసం మాత్రమే మరియు వృత్తిపరమైన వైద్య సలహా, రోగ నిర్ధారణ లేదా చికిత్సకు ప్రత్యామ్నాయం కాదు. వైద్య పరిస్థితి గురించి మీకు ఉన్న ఎటువంటి ప్రశ్నలకు ఎల్లప్పుడూ మీ వైద్యుడు లేదా ఇతర అర్హత ఉన్న ఆరోగ్య సేవాదారు సలహాను వెతకండి.`;
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 
     res.json({ response: fullResponse });
 
@@ -533,7 +487,6 @@ app.post('/contact', async (req, res) => {
 
 // API endpoint to get feedback stats (admin use)
 app.get('/api/feedback/stats', async (req, res) => {
-<<<<<<< HEAD
    try {
      const feedbackFilePath = path.join(dataDir, 'feedback.json');
      const data = await fs.readFile(feedbackFilePath, 'utf8');
@@ -619,20 +572,6 @@ app.post('/api/transcribe', upload.single('audio'), async (req, res) => {
             fallback: 'Could not recognize speech, please try again.'
         });
     }
-=======
-  try {
-    const feedbackFilePath = path.join(dataDir, 'feedback.json');
-    const data = await fs.readFile(feedbackFilePath, 'utf8');
-    const feedbackData = JSON.parse(data);
-
-    res.json({
-      totalSubmissions: feedbackData.submissions.length,
-      lastSubmission: feedbackData.submissions[feedbackData.submissions.length - 1]?.timestamp || null
-    });
-  } catch (error) {
-    res.json({ totalSubmissions: 0, lastSubmission: null });
-  }
->>>>>>> bdf8335 (Initial commit: Seasons of Health project)
 });
 
 // Default route to serve index.html
