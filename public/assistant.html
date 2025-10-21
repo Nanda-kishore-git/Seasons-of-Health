@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="assistant.title">AI Health Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<<<<<<< HEAD
+    <div class="language-selector">
+        <label data-i18n="ui.greetings.welcome">Welcome to Seasons of Health</label>
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="te">తెలుగు</option>
+        </select>
+    </div>
+    <!-- Interaction Mode Toggle -->
+    <div class="mode-toggle">
+        <button class="mode-btn active" id="chatModeBtn" onclick="setMode('chat')">💬 <span data-i18n="assistant.title">AI Assistant</span></button>
+        <button class="mode-btn" id="quizModeBtn" onclick="setMode('quiz')">📝 <span data-i18n="quiz.title">Health Check Quiz</span></button>
+    </div>
+    <div class="chat-container" id="chatContainer">
+=======
+    <div class="chat-container">
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    <p data-i18n="assistant.prompts.greeting">Hello! How can I help you with your health today?</p>
+                    <div class="voice-hint">
+<<<<<<< HEAD
+                        <small style="color: #666; font-style: italic;" data-i18n="assistant.voiceHint">💬 Click the microphone to speak, or type your message</small>
+=======
+                        <small style="color: #666; font-style: italic;">💬 Click the microphone to speak, or type your message</small>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here..." data-i18n="ui.placeholders.message">
+            <button class="voice-button" id="voiceButton" onclick="toggleVoiceInput()" title="Voice Input"><i class="fas fa-microphone"></i></button>
+            <button class="send-button" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+<<<<<<< HEAD
+    <div class="quiz-container" id="quizContainer" style="display: none;">
+        <div class="quiz-header">
+            <h2 data-i18n="quiz.title">Health Check Quiz</h2>
+            <p data-i18n="quiz.description">Answer a few simple questions to get personalized health insights.</p>
+        </div>
+        <div class="quiz-questions" id="quizQuestions">
+            <!-- Quiz questions will be dynamically inserted here -->
+        </div>
+        <div class="quiz-navigation">
+            <button class="quiz-btn secondary" id="prevQuestionBtn" onclick="previousQuestion()" style="display: none;"><i class="fas fa-arrow-left"></i> <span data-i18n="quiz.buttons.previous">Previous</span></button>
+            <button class="quiz-btn primary" id="nextQuestionBtn" onclick="nextQuestion()"><span data-i18n="quiz.buttons.next">Next</span> <i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="quiz-results" id="quizResults" style="display: none;">
+            <!-- Quiz results will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Floating Speech-to-Text Mic Button -->
+    <button class="floating-mic-btn" id="floatingMicBtn" onclick="toggleSpeechToText()" title="Voice-to-Voice Assistant">
+        <i class="fas fa-microphone"></i>
+    </button>
+    <script src="js/weather.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+     <script src="js/voice.js"></script>
+=======
+    <script src="js/weather.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    <script src="js/assistant.js"></script>
+    <script>
+        // Add language selector to assistant page
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                const languageSelector = document.createElement('div');
+                languageSelector.className = 'language-selector';
+                languageSelector.innerHTML = `
+                    <label data-i18n="ui.greetings.welcome">Welcome to Seasons of Health</label>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="te">తెలుగు</option>
+                    </select>
+                `;
+                nav.insertAdjacentElement('afterend', languageSelector);
+
+                // Add weather widget after language selector
+                const weatherWidget = document.createElement('div');
+                weatherWidget.className = 'weather-widget';
+                weatherWidget.innerHTML = `
+                    <div class="weather-header" data-i18n="weather.current">Current Weather</div>
+                    <div id="weatherInfo" class="weather-info">
+                        <div class="weather-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div class="weather-temp">--°C</div>
+                        </div>
+                        <div class="weather-item">
+                            <i class="fas fa-tint"></i>
+                            <div class="weather-humidity">--%</div>
+                        </div>
+                    </div>
+                    <div id="weatherLocation" class="weather-location">--</div>
+                `;
+                languageSelector.insertAdjacentElement('afterend', weatherWidget);
+            }
+<<<<<<< HEAD
+
+            // Setup language selector after a brief delay to ensure languageManager is loaded
+            setTimeout(() => {
+                if (typeof languageManager !== 'undefined') {
+                    languageManager.setupLanguageSelector();
+                }
+            }, 100);
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+        });
+
+        // Removed old sendMessage function - now handled by AssistantManager
+        // Removed old addMessage function and event listener - now handled by AssistantManager
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="healthCenters.title">Nearby Health Centers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .category-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #4CAF50;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #4CAF50;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+            font-size: 14px;
+        }
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+        }
+        .category-btn.active {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border-color: #4CAF50;
+        }
+        .center-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .center-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .center-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #4CAF50 0%, #FFD700 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .center-card:hover::before {
+            transform: scaleY(1);
+        }
+        .center-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+        }
+        .center-card h3 {
+            color: #4CAF50;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .center-card h3::before {
+            content: '🏥';
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        .center-card p {
+            margin: 8px 0;
+            line-height: 1.6;
+            color: #555;
+        }
+        .center-card strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .map-container {
+            height: 400px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            border-radius: 15px;
+            margin-top: 30px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4CAF50;
+            position: relative;
+        }
+
+        .fullscreen-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .fullscreen-btn:hover {
+            background: #4CAF50;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .fullscreen-btn i.fa-compress {
+            color: #FFD700;
+        }
+
+        /* Fullscreen mode styles */
+        .map-container.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .map-container.fullscreen .fullscreen-btn {
+            top: 20px;
+            right: 20px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 13px;
+        }
+<<<<<<< HEAD
+
+        /* Modal animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Closest marker styling */
+        .closest-marker {
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        .closest-pulse {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Modal close button hover */
+        .modal-content button:hover {
+            background: #c0392b !important;
+        }
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+        @media (max-width: 768px) {
+            .categories {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .center-list {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <main>
+        <h1 data-i18n="healthCenters.title">Nearby Health Centers</h1>
+        <p data-i18n="healthCenters.subtitle">Find medical facilities and emergency services in your area</p>
+<<<<<<< HEAD
+        <div class="map-container">
+            <div id="healthCentersMap" style="width: 100%; height: 100%; border-radius: 13px;"></div>
+            <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+        <div class="categories">
+            <button class="category-btn active" onclick="showCategory('hospitals')" data-i18n="healthCenters.categories.hospitals">Hospitals</button>
+            <button class="category-btn" onclick="showCategory('clinics')" data-i18n="healthCenters.categories.clinics">Clinics</button>
+            <button class="category-btn" onclick="showCategory('pharmacies')" data-i18n="healthCenters.categories.pharmacies">Pharmacies</button>
+            <button class="category-btn" onclick="showCategory('emergency')" data-i18n="healthCenters.categories.emergency">Emergency Services</button>
+        </div>
+        <div class="center-list" id="centerList">
+            <!-- Dynamic content will be populated by healthcenters.js -->
+        </div>
+<<<<<<< HEAD
+=======
+        <div class="map-container">
+            <div id="healthCentersMap" style="width: 100%; height: 100%; border-radius: 13px;"></div>
+            <button id="fullscreenBtn" class="fullscreen-btn" title="Toggle Fullscreen">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/healthcenters.js"></script>
+</body>
+</html>

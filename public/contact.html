@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact.title">Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        main {
+            padding: 40px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .contact-form {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #FFD700);
+            border-radius: 20px 20px 0 0;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+            outline: none;
+            transform: scale(1.02);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        .contact-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .contact-info h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+        }
+        .contact-info h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #FFD700);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            main {
+                padding: 20px 15px;
+            }
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <main>
+        <h1 data-i18n="contact.title">Contact Us</h1>
+        <p data-i18n="contact.subtitle">Get in touch for support and feedback</p>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name" data-i18n="contact.form.name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" data-i18n="ui.placeholders.name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-i18n="contact.form.email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" data-i18n="ui.placeholders.email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone" data-i18n="contact.form.phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" data-i18n="ui.placeholders.phone">
+            </div>
+            <div class="form-group">
+                <label for="message" data-i18n="contact.form.message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Type your message here..." data-i18n="ui.placeholders.message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="contact.form.send">Send Message</button>
+        </form>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p data-i18n="contact.info.support">For technical support, email support@seasonsofhealth.com</p>
+            <p data-i18n="contact.info.feedback">We welcome your feedback to improve our services</p>
+        </div>
+    </main>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        // Contact form submission handler
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message')
+                };
+
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success - clear form and show success message
+                    this.reset();
+                    alert('Thank you for your feedback! We appreciate your input.');
+                } else {
+                    // Error - show error message
+                    alert('Error: ' + (result.error || 'Failed to send message. Please try again.'));
+                }
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Network error. Please check your connection and try again.');
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

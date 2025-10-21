@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="diseases.title">Disease Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <main>
+        <h1 data-i18n="diseases.title">Disease Information</h1>
+        <p data-i18n="diseases.subtitle">Learn about common seasonal diseases and their symptoms</p>
+        <div class="disease-grid">
+<<<<<<< HEAD
+            <div class="disease-card" data-disease="flu" onclick="showDiseaseDetails('flu')">
+                <h3 data-i18n="diseases.commonDiseases.flu.name">Influenza (Flu)</h3>
+                <p data-i18n="diseases.commonDiseases.flu.description">A contagious respiratory illness caused by influenza viruses.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.flu.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.flu.symptoms">Fever, cough, sore throat, body aches, fatigue</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.flu.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.flu.prevention">Annual flu vaccine, hand washing, avoiding close contact with sick people</span></div>
+                <button class="learn-more-btn" onclick="learnMore('flu')">Learn More</button>
+            </div>
+            <div class="disease-card" data-disease="cold" onclick="showDiseaseDetails('cold')">
+                <h3 data-i18n="diseases.commonDiseases.cold.name">Common Cold</h3>
+                <p data-i18n="diseases.commonDiseases.cold.description">A viral infection of the upper respiratory tract.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.cold.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.cold.symptoms">Runny nose, sore throat, cough, congestion, sneezing</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.cold.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.cold.prevention">Hand washing, avoiding touching face, staying away from sick people</span></div>
+                <button class="learn-more-btn" onclick="learnMore('cold')">Learn More</button>
+            </div>
+            <div class="disease-card" data-disease="malaria" onclick="showDiseaseDetails('malaria')">
+                <h3 data-i18n="diseases.commonDiseases.malaria.name">Malaria</h3>
+                <p data-i18n="diseases.commonDiseases.malaria.description">A mosquito-borne infectious disease.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.malaria.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.malaria.symptoms">Fever, chills, headache, nausea, muscle pain</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.malaria.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.malaria.prevention">Mosquito nets, insect repellents, antimalarial medication</span></div>
+                <button class="learn-more-btn" onclick="learnMore('malaria')">Learn More</button>
+            </div>
+            <div class="disease-card" data-disease="dengue" onclick="showDiseaseDetails('dengue')">
+                <h3 data-i18n="diseases.commonDiseases.dengue.name">Dengue Fever</h3>
+                <p data-i18n="diseases.commonDiseases.dengue.description">A mosquito-borne viral infection.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.dengue.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.dengue.symptoms">High fever, severe headache, pain behind eyes, joint and muscle pain</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.dengue.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.dengue.prevention">Mosquito control, wearing long sleeves, using repellents</span></div>
+                <button class="learn-more-btn" onclick="learnMore('dengue')">Learn More</button>
+            </div>
+            <div class="disease-card" data-disease="diarrhea" onclick="showDiseaseDetails('diarrhea')">
+                <h3 data-i18n="diseases.commonDiseases.diarrhea.name">Seasonal Diarrhea</h3>
+                <p data-i18n="diseases.commonDiseases.diarrhea.description">Often caused by contaminated food or water during monsoon.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.diarrhea.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.diarrhea.symptoms">Frequent loose stools, abdominal pain, dehydration</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.diarrhea.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.diarrhea.prevention">Safe drinking water, proper food hygiene, hand washing</span></div>
+                <button class="learn-more-btn" onclick="learnMore('diarrhea')">Learn More</button>
+            </div>
+            <!-- Summer diseases -->
+            <div class="disease-card" data-disease="heatstroke" onclick="showDiseaseDetails('heatstroke')">
+                <h3 data-i18n="diseases.commonDiseases.heatstroke.name">Heatstroke</h3>
+                <p data-i18n="diseases.commonDiseases.heatstroke.description">A serious heat-related illness that occurs when body temperature rises dangerously high.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.flu.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.heatstroke.symptoms">High body temperature, confusion, rapid heartbeat, loss of consciousness</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.flu.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.heatstroke.prevention">Stay hydrated, avoid direct sunlight during peak hours, wear light clothing, take frequent breaks in shade</span></div>
+                <div class="remedies"><strong data-i18n="diseases.commonDiseases.flu.treatments">Remedies:</strong> <span data-i18n="diseases.commonDiseases.heatstroke.remedies">Move to a cool place, drink water slowly, use cold packs on neck and armpits, seek medical help immediately</span></div>
+                <div class="self-care"><strong>Self-care:</strong> <span data-i18n="diseases.commonDiseases.heatstroke.selfCare">Rest in cool environment, monitor body temperature, avoid strenuous activities</span></div>
+                <div class="nutrition"><strong>Nutrition:</strong> <span data-i18n="diseases.commonDiseases.heatstroke.nutrition">Consume electrolyte-rich drinks, eat light, hydrating foods like watermelon and cucumber, avoid caffeine and alcohol</span></div>
+                <button class="learn-more-btn" onclick="learnMore('heatstroke')">Learn More</button>
+            </div>
+            <div class="disease-card" data-disease="dehydration" onclick="showDiseaseDetails('dehydration')">
+                <h3 data-i18n="diseases.commonDiseases.dehydration.name">Dehydration</h3>
+                <p data-i18n="diseases.commonDiseases.dehydration.description">A condition that occurs when you lose more fluids than you take in.</p>
+                <div class="symptoms"><strong data-i18n="diseases.commonDiseases.flu.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.dehydration.symptoms">Dry mouth and skin, fatigue, dizziness, dark urine</span></div>
+                <div class="prevention"><strong data-i18n="diseases.commonDiseases.flu.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.dehydration.prevention">Drink plenty of water, avoid alcohol and caffeine, eat water-rich foods, limit outdoor activities during heat</span></div>
+                <div class="remedies"><strong data-i18n="diseases.commonDiseases.flu.treatments">Remedies:</strong> <span data-i18n="diseases.commonDiseases.dehydration.remedies">Drink oral rehydration solution, rest in cool place, sip water slowly, seek medical attention if severe</span></div>
+                <div class="self-care"><strong>Self-care:</strong> <span data-i18n="diseases.commonDiseases.dehydration.selfCare">Monitor urine color, weigh yourself daily, avoid overheating</span></div>
+                <div class="nutrition"><strong>Nutrition:</strong> <span data-i18n="diseases.commonDiseases.dehydration.nutrition">Consume fruits with high water content, electrolyte supplements, light, watery soups</span></div>
+                <button class="learn-more-btn" onclick="learnMore('dehydration')">Learn More</button>
+            </div>
+        </div>
+
+        <!-- Language selector script -->
+        <script>
+        // Add language selector to diseases page
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                const languageSelector = document.createElement('div');
+                languageSelector.className = 'language-selector';
+                languageSelector.innerHTML = `
+                    <label data-i18n="ui.greetings.welcome">Welcome to Seasons of Health</label>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="te">తెలుగు</option>
+                    </select>
+                `;
+                nav.insertAdjacentElement('afterend', languageSelector);
+
+                // Setup language selector after a brief delay to ensure languageManager is loaded
+                setTimeout(() => {
+                    if (typeof languageManager !== 'undefined') {
+                        languageManager.setupLanguageSelector();
+                    }
+                }, 100);
+            }
+
+            // Add disease data to cards for dynamic language switching
+            fetch('../data/diseases.json')
+                .then(response => response.json())
+                .then(data => {
+                    const cards = document.querySelectorAll('.disease-card');
+                    cards.forEach(card => {
+                        const diseaseKey = card.getAttribute('data-disease');
+                        if (diseaseKey && data[diseaseKey]) {
+                            card.setAttribute('data-disease-data', JSON.stringify(data[diseaseKey]));
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading disease data:', error));
+        });
+=======
+            <div class="disease-card" onclick="showDiseaseDetails('flu')">
+                <h3 data-i18n="diseases.commonDiseases.flu.name">Influenza (Flu)</h3>
+                <p data-i18n="diseases.commonDiseases.flu.description">A contagious respiratory illness caused by influenza viruses.</p>
+                <strong data-i18n="diseases.commonDiseases.flu.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.flu.symptoms">Fever, cough, sore throat, body aches, fatigue</span><br>
+                <strong data-i18n="diseases.commonDiseases.flu.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.flu.prevention">Annual flu vaccine, hand washing, avoiding close contact with sick people</span>
+                <button class="learn-more-btn" onclick="learnMore('dengue')">Learn More</button>
+            </div>
+            <div class="disease-card" onclick="showDiseaseDetails('cold')">
+                <h3 data-i18n="diseases.commonDiseases.cold.name">Common Cold</h3>
+                <p data-i18n="diseases.commonDiseases.cold.description">A viral infection of the upper respiratory tract.</p>
+                <strong data-i18n="diseases.commonDiseases.cold.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.cold.symptoms">Runny nose, sore throat, cough, congestion, sneezing</span><br>
+                <strong data-i18n="diseases.commonDiseases.cold.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.cold.prevention">Hand washing, avoiding touching face, staying away from sick people</span>
+                <button class="learn-more-btn" onclick="learnMore('malaria')">Learn More</button>
+            </div>
+            <div class="disease-card" onclick="showDiseaseDetails('malaria')">
+                <h3 data-i18n="diseases.commonDiseases.malaria.name">Malaria</h3>
+                <p data-i18n="diseases.commonDiseases.malaria.description">A mosquito-borne infectious disease.</p>
+                <strong data-i18n="diseases.commonDiseases.malaria.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.malaria.symptoms">Fever, chills, headache, nausea, muscle pain</span><br>
+                <strong data-i18n="diseases.commonDiseases.malaria.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.malaria.prevention">Mosquito nets, insect repellents, antimalarial medication</span>
+                <button class="learn-more-btn" onclick="learnMore('${disease}')">Learn More</button>
+            </div>
+            <div class="disease-card" onclick="showDiseaseDetails('dengue')">
+                <h3 data-i18n="diseases.commonDiseases.dengue.name">Dengue Fever</h3>
+                <p data-i18n="diseases.commonDiseases.dengue.description">A mosquito-borne viral infection.</p>
+                <strong data-i18n="diseases.commonDiseases.dengue.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.dengue.symptoms">High fever, severe headache, pain behind eyes, joint and muscle pain</span><br>
+                <strong data-i18n="diseases.commonDiseases.dengue.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.dengue.prevention">Mosquito control, wearing long sleeves, using repellents</span>
+                <button class="learn-more-btn" onclick="learnMore('cold')">Learn More</button>
+            </div>
+            <div class="disease-card" onclick="showDiseaseDetails('diarrhea')">
+                <h3 data-i18n="diseases.commonDiseases.diarrhea.name">Seasonal Diarrhea</h3>
+                <p data-i18n="diseases.commonDiseases.diarrhea.description">Often caused by contaminated food or water during monsoon.</p>
+    <script>
+        // Load translations for diseases page
+        let translations = {};
+        fetch('../translations/en.json')
+            .then(response => response.json())
+            .then(data => {
+                translations = data;
+                window.translations = data;
+                // Update current language if Telugu is selected
+                const savedLanguage = localStorage.getItem('language') || 'en';
+                if (savedLanguage === 'te') {
+                    fetch('../translations/te.json')
+                        .then(response => response.json())
+                        .then(teData => {
+                            translations = teData;
+                            window.translations = teData;
+                            updateDiseaseUI();
+                        });
+                }
+            });
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+
+        function showDiseaseDetails(diseaseKey) {
+            const modal = document.getElementById('diseaseModal');
+            const details = document.getElementById('diseaseDetails');
+
+<<<<<<< HEAD
+            // Get disease data using languageManager if available, otherwise use diseases.js module
+            let diseaseData = null;
+            if (typeof languageManager !== 'undefined') {
+                const currentLang = languageManager.getCurrentLanguage();
+                diseaseData = window.DiseaseData ? window.DiseaseData.getDiseaseData(diseaseKey, currentLang) : null;
+            }
+
+            if (!diseaseData) {
+                // Fallback to translations if module not available
+                diseaseData = window.translations?.diseases?.commonDiseases?.[diseaseKey];
+            }
+
+            if (!diseaseData) return;
+
+            const translate = (key) => {
+                return (typeof languageManager !== 'undefined') ? languageManager.getTranslation(key) : (window.translations ? window.translations[key] || key : key);
+            };
+
+            details.innerHTML = `
+                <h2>${diseaseData.name}</h2>
+                <p><strong>${translate('diseases.commonDiseases.flu.description') || 'Description'}:</strong> ${diseaseData.description || 'Not available'}</p>
+                <p><strong>${translate('diseases.commonDiseases.flu.symptoms') || 'Symptoms'}:</strong> ${Array.isArray(diseaseData.symptoms) ? diseaseData.symptoms.join(', ') : diseaseData.symptoms || 'Not available'}</p>
+                <p><strong>${translate('diseases.commonDiseases.flu.prevention') || 'Prevention'}:</strong> ${Array.isArray(diseaseData.prevention) ? diseaseData.prevention.join(', ') : diseaseData.prevention || 'Not available'}</p>
+                <p><strong>${translate('diseases.commonDiseases.flu.treatments') || 'Remedies'}:</strong> ${Array.isArray(diseaseData.remedies) ? diseaseData.remedies.join(', ') : diseaseData.remedies || 'Not available'}</p>
+                <p><strong>Self-care:</strong> ${Array.isArray(diseaseData.selfCare) ? diseaseData.selfCare.join(', ') : diseaseData.selfCare || 'Not available'}</p>
+                <p><strong>Nutrition:</strong> ${Array.isArray(diseaseData.nutrition) ? diseaseData.nutrition.join(', ') : diseaseData.nutrition || 'Not available'}</p>
+                <p style="color: #e74c3c; font-size: 14px; margin-top: 15px;"><em>⚠️ ${translate('disclaimers.medical')}</em></p>
+=======
+            // Get disease data from translations
+            const diseaseData = window.translations?.diseases?.commonDiseases?.[diseaseKey];
+            if (!diseaseData) return;
+
+            details.innerHTML = `
+                <h2>${diseaseData.name}</h2>
+                <p><strong>${getTranslation('diseases.commonDiseases.flu.description') || 'Description'}:</strong> ${diseaseData.description}</p>
+                <p><strong>${getTranslation('diseases.commonDiseases.flu.symptoms') || 'Symptoms'}:</strong> ${diseaseData.symptoms}</p>
+                <p><strong>${getTranslation('diseases.commonDiseases.flu.causes') || 'Causes'}:</strong> ${diseaseData.causes || getTranslation('diseases.commonDiseases.flu.causes') || 'Not specified'}</p>
+                <p><strong>${getTranslation('diseases.commonDiseases.flu.prevention') || 'Prevention'}:</strong> ${diseaseData.prevention}</p>
+                <p><strong>${getTranslation('diseases.commonDiseases.flu.treatments') || 'Treatments'}:</strong> ${diseaseData.treatments || getTranslation('diseases.commonDiseases.flu.treatments') || 'Not specified'}</p>
+                <p style="color: #e74c3c; font-size: 14px; margin-top: 15px;"><em>⚠️ ${getTranslation('disclaimers.medical')}</em></p>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        function learnMore(diseaseKey) {
+            // Redirect to assistant page with disease query
+            const diseaseNames = {
+                'flu': 'Influenza',
+                'cold': 'Common Cold',
+                'malaria': 'Malaria',
+                'dengue': 'Dengue Fever',
+<<<<<<< HEAD
+                'diarrhea': 'Seasonal Diarrhea',
+                'heatstroke': 'Heatstroke',
+                'dehydration': 'Dehydration'
+=======
+                'diarrhea': 'Seasonal Diarrhea'
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+            };
+
+            const diseaseName = diseaseNames[diseaseKey] || diseaseKey;
+            const query = `Tell me more about ${diseaseName} symptoms, causes, prevention, and treatments`;
+
+            // Store query in session storage to be picked up by assistant page
+            sessionStorage.setItem('assistantQuery', query);
+            sessionStorage.setItem('sourcePage', 'diseases');
+
+            // Redirect to assistant page
+            window.location.href = 'assistant.html';
+        }
+
+        function closeModal() {
+            document.getElementById('diseaseModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('diseaseModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+<<<<<<< HEAD
+    </script>
+=======
+
+        function getTranslation(key) {
+            return window.translations ? window.translations[key] || key : key;
+        }
+
+        function updateDiseaseUI() {
+            // Update any dynamic content if needed
+            const currentLang = localStorage.getItem('language') || 'en';
+            document.documentElement.lang = currentLang;
+        }
+    </script>
+                <strong data-i18n="diseases.commonDiseases.diarrhea.symptoms">Symptoms:</strong> <span data-i18n="diseases.commonDiseases.diarrhea.symptoms">Frequent loose stools, abdominal pain, dehydration</span><br>
+                <strong data-i18n="diseases.commonDiseases.diarrhea.prevention">Prevention:</strong> <span data-i18n="diseases.commonDiseases.diarrhea.prevention">Safe drinking water, proper food hygiene, hand washing</span>
+                <button class="learn-more-btn" onclick="learnMore('diarrhea')">Learn More</button>
+            </div>
+        </div>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    
+        <!-- Disease Details Modal -->
+        <div id="diseaseModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="diseaseDetails"></div>
+            </div>
+        </div>
+    </main>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

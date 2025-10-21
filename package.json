@@ -1,0 +1,28 @@
+{
+  "name": "seasons-of-health",
+  "version": "1.0.0",
+  "description": "Node.js backend for Seasons of Health project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+<<<<<<< HEAD
+    "multer": "^1.4.5-lts.1",
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    "leaflet": "^1.9.4"
+  },
+  "keywords": [
+    "health",
+    "seasons",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC"
+}

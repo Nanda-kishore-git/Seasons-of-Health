@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="home.title">Seasons of Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <main>
+        <div class="language-selector">
+            <label data-i18n="ui.greetings.welcome">Welcome to Seasons of Health</label>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="te">తెలుగు</option>
+            </select>
+<<<<<<< HEAD
+            <span class="tagline" data-i18n="home.tagline">Healthy Seasons, Healthy Lives</span>
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+        </div>
+        <div class="weather-card">
+            <div class="weather-header">
+                <i class="fas fa-cloud-sun"></i>
+                <span data-i18n="weather.current">Current Weather</span>
+                <button onclick="weatherManager.showLocationSettings()" class="location-settings-btn" title="Location Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+            <div id="weatherInfo" class="weather-info">
+                <div class="weather-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div class="weather-temp">--°C</div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-tint"></i>
+                    <div class="weather-humidity">--%</div>
+                </div>
+            </div>
+            <div id="weatherDescription" class="weather-description">--</div>
+            <div id="weatherLocation" class="weather-location">--</div>
+            <div class="forecast-container">
+<<<<<<< HEAD
+                <div class="forecast-navigation">
+                    <button class="forecast-nav-btn" id="forecastPrevBtn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="forecast-header" data-i18n="weather.forecast">24-Hour Forecast</div>
+                    <button class="forecast-nav-btn" id="forecastNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+=======
+                <div class="forecast-header" data-i18n="weather.forecast">24-Hour Forecast</div>
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+                <div id="weatherForecast" class="weather-forecast">
+                    <!-- Forecast items will be populated here -->
+                </div>
+            </div>
+        </div>
+        <h1 data-i18n="home.title">Seasons of Health</h1>
+    <script src="js/weather.js"></script>
+        <p data-i18n="home.subtitle">Your personalized health companion</p>
+        <p data-i18n="home.description">Get seasonal health advice, disease information, and self-care tips tailored to your location and weather.</p>
+        <div class="feature-cards">
+            <div class="card">
+                <i class="fas fa-robot fa-3x"></i>
+                <h3 data-i18n="home.features.aiAssistant">AI Health Assistant</h3>
+                <p>Placeholder for AI assistant description</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-book-medical fa-3x"></i>
+                <h3 data-i18n="home.features.diseaseInfo">Comprehensive Disease Database</h3>
+                <p>Placeholder for disease info description</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hand-holding-heart fa-3x"></i>
+                <h3 data-i18n="home.features.selfCare">Seasonal Self-Care Tips</h3>
+                <p>Placeholder for self-care description</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cloud-sun fa-3x"></i>
+                <h3 data-i18n="home.features.weatherIntegration">Weather-Based Recommendations</h3>
+                <p>Placeholder for weather integration description</p>
+            </div>
+        </div>
+    </main>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

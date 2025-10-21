@@ -1,0 +1,244 @@
+{
+  "ui": {
+    "greetings": {
+      "welcome": "Welcome to Seasons of Health",
+      "goodMorning": "Good Morning",
+      "goodAfternoon": "Good Afternoon",
+      "goodEvening": "Good Evening"
+    },
+    "menu": {
+      "home": "Home",
+      "assistant": "AI Assistant",
+      "diseases": "Disease Information",
+      "selfCare": "Self-Care Tips",
+      "healthCenters": "Health Centers",
+      "contact": "Contact Us"
+    },
+    "buttons": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "edit": "Edit",
+      "back": "Back",
+      "next": "Next",
+      "previous": "Previous",
+      "search": "Search"
+    },
+    "placeholders": {
+      "search": "Search for health information...",
+      "message": "Type your message here...",
+      "name": "Enter your name",
+      "email": "Enter your email",
+      "phone": "Enter your phone number"
+    },
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again.",
+    "success": "Operation completed successfully."
+  },
+  "home": {
+    "title": "Seasons of Health",
+    "subtitle": "Your personalized health companion",
+    "description": "Get seasonal health advice, disease information, and self-care tips tailored to your location and weather.",
+<<<<<<< HEAD
+    "tagline": "Healthy Seasons, Healthy Lives",
+=======
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    "features": {
+      "aiAssistant": "AI Health Assistant",
+      "diseaseInfo": "Comprehensive Disease Database",
+      "selfCare": "Seasonal Self-Care Tips",
+      "weatherIntegration": "Weather-Based Recommendations"
+    }
+  },
+  "assistant": {
+<<<<<<< HEAD
+    "title": "AI Assistant",
+    "subtitle": "Get instant health advice and answers to your questions",
+    "voiceHint": "💬 Click the microphone to speak, or type your message",
+=======
+    "title": "AI Health Assistant",
+    "subtitle": "Get instant health advice and answers to your questions",
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+    "prompts": {
+      "greeting": "Hello! How can I help you with your health today?",
+      "seasonalTip": "Based on the current season, here's a health tip:",
+      "weatherAlert": "Weather alert: Stay hydrated and protect yourself from extreme conditions.",
+      "generalQuestion": "Ask me anything about health, diseases, or wellness!"
+    },
+    "responses": {
+      "thinking": "I'm thinking about your question...",
+      "error": "I'm sorry, I couldn't process your request. Please try again."
+    }
+  },
+  "weather": {
+    "current": "Current Weather",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "location": "Location",
+    "loading": "Loading weather...",
+    "error": "Weather data unavailable",
+<<<<<<< HEAD
+    "fallback": "Weather information",
+    "forecast": "24-Hour Forecast"
+   },
+   "quiz": {
+     "title": "Health Check Quiz",
+     "description": "Answer a few simple questions to get personalized health insights.",
+     "questions": {
+       "fever": "Do you have a fever?",
+       "headache": "Do you have a headache?",
+       "cough": "Do you have a cough?",
+       "fatigue": "Do you feel fatigued or tired?",
+       "bodyPain": "Do you have body aches or pain?",
+       "nausea": "Do you feel nauseous?",
+       "rash": "Do you have any skin rash?",
+       "chills": "Do you have chills?"
+     },
+     "results": {
+       "title": "Your Health Assessment",
+       "aiAdvice": "AI Health Recommendations",
+       "noDiseases": "Based on your answers, no specific diseases were identified. However, if you're experiencing symptoms, please consult a healthcare professional."
+     },
+     "buttons": {
+       "next": "Next",
+       "previous": "Previous",
+       "getResults": "Get Results",
+       "restart": "Take Quiz Again"
+     }
+   }
+  },
+  "chat": {
+    "thinking": "I'm thinking about your question...",
+    "error": "I'm sorry, I couldn't process your request. Please try again."
+=======
+    "fallback": "Weather information"
+  }
+>>>>>>> bdf8335 (Initial commit: Seasons of Health project)
+  },
+  "diseases": {
+    "title": "Disease Information",
+    "subtitle": "Learn about common seasonal diseases and their symptoms",
+    "commonDiseases": {
+      "flu": {
+        "name": "Influenza (Flu)",
+        "description": "A contagious respiratory illness caused by influenza viruses.",
+        "symptoms": "Fever, cough, sore throat, body aches, fatigue",
+        "prevention": "Annual flu vaccine, hand washing, avoiding close contact with sick people",
+        "causes": "Influenza A, B, and C viruses transmitted through respiratory droplets",
+        "treatments": "Antiviral medications like oseltamivir (Tamiflu), rest, fluids, pain relievers, annual vaccination"
+      },
+      "cold": {
+        "name": "Common Cold",
+        "description": "A viral infection of the upper respiratory tract.",
+        "symptoms": "Runny nose, sore throat, cough, congestion, sneezing",
+        "prevention": "Hand washing, avoiding touching face, staying away from sick people",
+        "causes": "Over 200 different viruses, most commonly rhinoviruses",
+        "treatments": "Rest, fluids, over-the-counter medications for symptoms, usually resolves in 7-10 days"
+      },
+      "malaria": {
+        "name": "Malaria",
+        "description": "A mosquito-borne infectious disease.",
+        "symptoms": "Fever, chills, headache, nausea, muscle pain",
+        "prevention": "Mosquito nets, insect repellents, antimalarial medication",
+        "causes": "Plasmodium parasites transmitted by Anopheles mosquitoes",
+        "treatments": "Antimalarial drugs like chloroquine, artemisinin-based therapies, preventive medications for travelers"
+      },
+      "dengue": {
+        "name": "Dengue Fever",
+        "description": "A mosquito-borne viral infection.",
+        "symptoms": "High fever, severe headache, pain behind eyes, joint and muscle pain",
+        "prevention": "Mosquito control, wearing long sleeves, using repellents",
+        "causes": "Dengue virus transmitted by Aedes mosquitoes",
+        "treatments": "Supportive care, fluids, pain relievers, rest, severe cases require hospitalization"
+      },
+      "diarrhea": {
+        "name": "Seasonal Diarrhea",
+        "description": "Often caused by contaminated food or water during monsoon.",
+        "symptoms": "Frequent loose stools, abdominal pain, dehydration",
+        "prevention": "Safe drinking water, proper food hygiene, hand washing",
+        "causes": "Contaminated food or water, bacterial infections like cholera or salmonella, viral infections, parasitic infections",
+        "treatments": "Oral rehydration solutions, antibiotics if bacterial, rest, proper nutrition, avoid antidiarrheal medications without medical advice"
+      }
+    }
+  },
+  "selfCare": {
+    "title": "Self-Care Tips",
+    "subtitle": "Practical advice for maintaining health throughout the seasons",
+    "seasonalTips": {
+      "summer": {
+        "title": "Summer Health Tips",
+        "tips": [
+          "Stay hydrated by drinking plenty of water",
+          "Wear light, breathable clothing",
+          "Avoid direct sunlight during peak hours",
+          "Eat fresh fruits and vegetables",
+          "Use sunscreen to protect your skin"
+        ]
+      },
+      "monsoon": {
+        "title": "Monsoon Health Tips",
+        "tips": [
+          "Keep your surroundings clean to prevent waterborne diseases",
+          "Use mosquito repellents and nets",
+          "Avoid walking in stagnant water",
+          "Keep food covered and fresh",
+          "Boost immunity with vitamin C rich foods"
+        ]
+      },
+      "winter": {
+        "title": "Winter Health Tips",
+        "tips": [
+          "Dress warmly to prevent colds",
+          "Maintain indoor humidity",
+          "Eat warm, nourishing foods",
+          "Stay physically active",
+          "Get adequate sleep"
+        ]
+      }
+    },
+    "generalTips": {
+      "exercise": "Regular physical activity improves overall health",
+      "nutrition": "Balanced diet with seasonal fruits and vegetables",
+      "hygiene": "Maintain personal and environmental hygiene",
+      "rest": "Adequate sleep and rest for recovery",
+      "mentalHealth": "Practice stress management and mindfulness"
+    }
+  },
+  "healthCenters": {
+    "title": "Nearby Health Centers",
+    "subtitle": "Find medical facilities and emergency services in your area",
+    "categories": {
+      "hospitals": "Hospitals",
+      "clinics": "Clinics",
+      "pharmacies": "Pharmacies",
+      "emergency": "Emergency Services"
+    },
+    "info": {
+      "location": "Location",
+      "contact": "Contact",
+      "services": "Services",
+      "hours": "Operating Hours"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch for support and feedback",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Your Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "support": "For technical support, email support@seasonsofhealth.com",
+      "feedback": "We welcome your feedback to improve our services"
+    }
+  },
+  "disclaimers": {
+    "medical": "This information is for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.",
+    "ai": "AI responses are generated based on available data and should not be considered as medical advice. Consult healthcare professionals for personalized recommendations.",
+    "privacy": "We respect your privacy and do not store personal health information without your consent.",
+    "accuracy": "While we strive for accuracy, information may change. Always verify with reliable sources."
+  }
+}

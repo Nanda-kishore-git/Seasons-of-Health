@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="selfCare.title">Self-Care Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .season-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .season-tab {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #4CAF50;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-right: 15px;
+            font-weight: 600;
+            color: #4CAF50;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+        }
+        .season-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+        }
+        .season-tab.active {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border-color: #4CAF50;
+        }
+        .season-content {
+            display: none;
+            padding: 30px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .season-content.active {
+            display: block;
+        }
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tips-list li {
+            padding: 15px 0;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        .tips-list li:hover {
+            background-color: rgba(76, 175, 80, 0.05);
+            transform: translateX(5px);
+            padding-left: 10px;
+        }
+        .tips-list li:last-child {
+            border-bottom: none;
+        }
+        .tips-list li:before {
+            content: "🌿";
+            font-size: 20px;
+            margin-right: 15px;
+            color: #FFD700;
+            font-weight: bold;
+        }
+        .season-content h2 {
+            color: #4CAF50;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+        }
+        .season-content h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #FFD700);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        @media (max-width: 768px) {
+            .season-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .season-tab {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span data-i18n="home.title">Seasons of Health</span>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="ui.menu.home">Home</a></li>
+            <li><a href="assistant.html" data-i18n="ui.menu.assistant">AI Assistant</a></li>
+            <li><a href="diseases.html" data-i18n="ui.menu.diseases">Disease Information</a></li>
+            <li><a href="selfcare.html" data-i18n="ui.menu.selfCare">Self-Care Tips</a></li>
+            <li><a href="healthcenters.html" data-i18n="ui.menu.healthCenters">Health Centers</a></li>
+            <li><a href="contact.html" data-i18n="ui.menu.contact">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="ui.menu.home">Home</span></a></li>
+            <li><a href="assistant.html"><i class="fas fa-robot"></i> <span data-i18n="ui.menu.assistant">AI Assistant</span></a></li>
+            <li><a href="diseases.html"><i class="fas fa-stethoscope"></i> <span data-i18n="ui.menu.diseases">Disease Information</span></a></li>
+            <li><a href="selfcare.html"><i class="fas fa-heart"></i> <span data-i18n="ui.menu.selfCare">Self-Care Tips</span></a></li>
+            <li><a href="healthcenters.html"><i class="fas fa-hospital"></i> <span data-i18n="ui.menu.healthCenters">Health Centers</span></a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="ui.menu.contact">Contact Us</span></a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <main>
+        <h1 data-i18n="selfCare.title">Self-Care Tips</h1>
+        <p data-i18n="selfCare.subtitle">Practical advice for maintaining health throughout the seasons</p>
+        <div class="season-tabs">
+            <button class="season-tab active" onclick="showSeason('summer')" data-i18n="selfCare.seasonalTips.summer.title">Summer Health Tips</button>
+            <button class="season-tab" onclick="showSeason('monsoon')" data-i18n="selfCare.seasonalTips.monsoon.title">Monsoon Health Tips</button>
+            <button class="season-tab" onclick="showSeason('winter')" data-i18n="selfCare.seasonalTips.winter.title">Winter Health Tips</button>
+        </div>
+        <div id="summer" class="season-content active">
+            <h2 data-i18n="selfCare.seasonalTips.summer.title">Summer Health Tips</h2>
+            <ul class="tips-list">
+                <li data-i18n="selfCare.seasonalTips.summer.tips.0">Stay hydrated by drinking plenty of water</li>
+                <li data-i18n="selfCare.seasonalTips.summer.tips.1">Wear light, breathable clothing</li>
+                <li data-i18n="selfCare.seasonalTips.summer.tips.2">Avoid direct sunlight during peak hours</li>
+                <li data-i18n="selfCare.seasonalTips.summer.tips.3">Eat fresh fruits and vegetables</li>
+                <li data-i18n="selfCare.seasonalTips.summer.tips.4">Use sunscreen to protect your skin</li>
+            </ul>
+        </div>
+        <div id="monsoon" class="season-content">
+            <h2 data-i18n="selfCare.seasonalTips.monsoon.title">Monsoon Health Tips</h2>
+            <ul class="tips-list">
+                <li data-i18n="selfCare.seasonalTips.monsoon.tips.0">Keep your surroundings clean to prevent waterborne diseases</li>
+                <li data-i18n="selfCare.seasonalTips.monsoon.tips.1">Use mosquito repellents and nets</li>
+                <li data-i18n="selfCare.seasonalTips.monsoon.tips.2">Avoid walking in stagnant water</li>
+                <li data-i18n="selfCare.seasonalTips.monsoon.tips.3">Keep food covered and fresh</li>
+                <li data-i18n="selfCare.seasonalTips.monsoon.tips.4">Boost immunity with vitamin C rich foods</li>
+            </ul>
+        </div>
+        <div id="winter" class="season-content">
+            <h2 data-i18n="selfCare.seasonalTips.winter.title">Winter Health Tips</h2>
+            <ul class="tips-list">
+                <li data-i18n="selfCare.seasonalTips.winter.tips.0">Dress warmly to prevent colds</li>
+                <li data-i18n="selfCare.seasonalTips.winter.tips.1">Maintain indoor humidity</li>
+                <li data-i18n="selfCare.seasonalTips.winter.tips.2">Eat warm, nourishing foods</li>
+                <li data-i18n="selfCare.seasonalTips.winter.tips.3">Stay physically active</li>
+                <li data-i18n="selfCare.seasonalTips.winter.tips.4">Get adequate sleep</li>
+            </ul>
+        </div>
+        <h2>General Self-Care Tips</h2>
+        <ul class="tips-list">
+            <li data-i18n="selfCare.generalTips.exercise">Regular physical activity improves overall health</li>
+            <li data-i18n="selfCare.generalTips.nutrition">Balanced diet with seasonal fruits and vegetables</li>
+            <li data-i18n="selfCare.generalTips.hygiene">Maintain personal and environmental hygiene</li>
+            <li data-i18n="selfCare.generalTips.rest">Adequate sleep and rest for recovery</li>
+            <li data-i18n="selfCare.generalTips.mentalHealth">Practice stress management and mindfulness</li>
+        </ul>
+    </main>
+    <script src="js/language.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        function showSeason(season) {
+            const contents = document.querySelectorAll('.season-content');
+            const tabs = document.querySelectorAll('.season-tab');
+            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(season).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
